@@ -1,0 +1,5 @@
+.terraform
+.versions.conf
+tmp/*
+!tmp/.keep
+ec2_keys/*

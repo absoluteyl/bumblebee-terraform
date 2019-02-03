@@ -1,0 +1,65 @@
+[
+  {
+    "name": "rails-app",
+    "image": "860030201430.dkr.ecr.us-east-1.amazonaws.com/bumblebee:${app_revision}",
+    "memoryReservation": ${app_memory},
+    "cpu": ${app_cpu},
+    "essential": true,
+    "portMappings": [
+      {
+        "hostPort": 80,
+        "protocol": "tcp",
+        "containerPort": 80
+      }
+    ],
+    "environment": [
+      {
+        "name": "AWS_ECS_CLUSTER_NAME",
+        "value": "${cluster_name}"
+      },
+      {
+        "name": "AWS_ECS_SERVICE_NAME",
+        "value": "${service_name}"
+      },
+      {
+        "name": "STACK_ENV",
+        "value": "${env}"
+      },
+      {
+        "name": "SEKRETS_PS_REGION",
+        "value": "${region}"
+      },
+      {
+        "name": "SEKRETS_PS_NAME",
+        "value": "${sekrets_ps_name}"
+      }
+    ],
+    "mountPoints": [],
+    "volumesFrom": [],
+    "hostname": null,
+    "user": null,
+    "workingDirectory": null,
+    "extraHosts": null,
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "/${project}-${env}/${service_name}/container-log",
+        "awslogs-region": "${region}",
+        "awslogs-stream-prefix": "ecs"
+      }
+    },
+    "ulimits": null,
+    "dockerLabels": null,
+    "dnsSearchDomains": null,
+    "entryPoint": null,
+    "command": null,
+    "linuxParameters": null,
+    "dnsServers": null,
+    "dockerSecurityOptions": null,
+    "memory": null,
+    "disableNetworking": null,
+    "links": null,
+    "readonlyRootFilesystem": null,
+    "privileged": null
+  }
+]

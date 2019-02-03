@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+if [ "$1" == "plan" ]
+then
+  terraform $1 -var "stage=$2" -state=states/$2/us-east-1/terraform.tfstate
+else
+  terraform $1 -var "stage=$2" -state=states/$2/us-east-1/terraform.tfstate -backup=states/$2/us-east-1/terraform.tfstate.backup
+fi
