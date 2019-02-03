@@ -1,4 +1,4 @@
-# Zyxel Modeling Terraform
+# BumbleBee Terraform
 
 Terraform for BumbleBee, this terraform will create the following:
 
